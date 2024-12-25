@@ -8,7 +8,6 @@ import { StatusBar } from 'expo-status-bar';
 import { useAuthContext } from './providers/AuthProvider';
 import { View, Text, Pressable, StyleSheet,Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Expo's vector icons library
-import icon from './assets/logo.png'
 import SnakeScreen from './screens/SnakeScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();

@@ -8,7 +8,7 @@ import { useLoader } from '@react-three/fiber/native'
 export const useTextureLoader = (): THREE.Texture => {
   const texture = useLoader(
     TextureLoader,
-    require('../assets/logo.svg')
+    require('../assets/logo1.png')
   )
   if (!texture || texture === null || Array.isArray(texture)) throw new Error("Error on loading texture")
   return texture
@@ -33,7 +33,7 @@ export default function ThreeDSphere() {
     camera.position.z = 3;
 
     // Texture loading
-    const asset = Asset.fromModule(require('../assets/logo.png')); // Replace with the path to your logo
+    const asset = Asset.fromModule(require('../assets/logo1.png')); // Replace with the path to your logo
     await asset.downloadAsync();
     // const texture = useTextureLoader()
     const texture = new THREE.TextureLoader().load(asset.localUri as string,(tex) => {
@@ -46,9 +46,9 @@ export default function ThreeDSphere() {
       tex.wrapS = THREE.ClampToEdgeWrapping;
       tex.wrapT = THREE.ClampToEdgeWrapping;
       // Set repeat values to scale the texture
-      tex.wrapS = THREE.RepeatWrapping;
-      tex.wrapT = THREE.RepeatWrapping;
-      tex.repeat.set(2, 1); // Scale down texture to match the radius
+      //tex.wrapS = THREE.RepeatWrapping;
+      //tex.wrapT = THREE.RepeatWrapping;
+      tex.repeat.set(4, 1); // Scale down texture to match the radius
 
       // Center the texture
       tex.offset.set(0.5 - 1 / (5 * scalingFactor), 0.5 - 1 / (5 * scalingFactor));
@@ -82,8 +82,8 @@ export default function ThreeDSphere() {
 
     // Animation
     const animate = () => {
-      sphere.rotation.y += 0.01;
-      // sphere.rotation.x += 0.01;
+      sphere.rotation.y += 0.009;
+      sphere.rotation.x += 0.0015;
 
       renderer.render(scene, camera);
       gl.endFrameEXP();
