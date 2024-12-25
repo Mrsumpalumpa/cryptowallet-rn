@@ -4,12 +4,14 @@ import LoginScreen from './screens/LoginScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import ReportScreen from './screens/ReportScreen';
 import { RootStackParamsList } from './models/generics';
-
 import { StatusBar } from 'expo-status-bar';
 import { useAuthContext } from './providers/AuthProvider';
-
+import { View, Text, Pressable, StyleSheet,Image } from 'react-native';
+import { Ionicons } from '@expo/vector-icons'; // Expo's vector icons library
+import icon from './assets/logo.png'
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
+
 
 
 export default function Navigator() {
@@ -29,12 +31,19 @@ export default function Navigator() {
                         component={ProfileScreen}
                         options={{
                             headerStyle: {
-                            backgroundColor: '#9fc6e8',
+                                backgroundColor: 'transparent',
+                                },
+                                headerTintColor: '#fff',
+                                headerTitleStyle: {
+                                fontWeight: 'bold',
                             },
-                            headerTintColor: '#fff',
-                            headerTitleStyle: {
-                            fontWeight: 'bold',
-                            },
+                            headerTransparent: true, // Make header background transparent
+                            headerTitle: '', // Remove title
+                            headerLeft: () => (
+                                <Pressable onPress={() => alert('Menu opened')}>
+                                    <Ionicons name="menu" size={24} color="#6f69eb" />
+                                </Pressable>
+                            ),
                         }} 
                     />
                     <Stack.Screen 
@@ -42,12 +51,20 @@ export default function Navigator() {
                         component={ReportScreen} 
                         options={{
                             headerStyle: {
-                            backgroundColor: '#9fc6e8',
+                                backgroundColor: 'transparent',
+                                },
+                                headerTintColor: '#fff',
+                                headerTitleStyle: {
+                                fontWeight: 'bold',
                             },
-                            headerTintColor: '#fff',
-                            headerTitleStyle: {
-                            fontWeight: 'bold',
-                            },
+                            headerTransparent: true, // Make header background transparent
+                            headerTitle: '', // Remove title
+                            headerLeft: () => (
+                                <Pressable onPress={() => alert('Menu opened')}>
+                                    <Ionicons name="menu" size={24} color="#6f69eb" />
+                                </Pressable>
+                            ),
+                            
                         }}
                     />
                 </>
@@ -58,12 +75,20 @@ export default function Navigator() {
                     component={LoginScreen}
                     options={{
                         headerStyle: {
-                        backgroundColor:'#9fc6e8',
+                            backgroundColor: 'transparent',
+                            },
+                            headerTintColor: '#fff',
+                            headerTitleStyle: {
+                            fontWeight: 'bold',
+                            
                         },
-                        headerTintColor: '#fff',
-                        headerTitleStyle: {
-                        fontWeight: 'bold',
-                        },
+                        headerTransparent: true, // Make header background transparent
+                        headerTitle: '', // Remove title
+                        headerLeft: () => (
+                            <Pressable onPress={() => alert('Menu opened')} >
+                                <Ionicons name="menu" size={24} color="#6f69eb" />
+                            </Pressable>
+                        ),
                         
                     }}
                     />
