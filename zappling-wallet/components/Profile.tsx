@@ -13,6 +13,12 @@ const Profile = (props:ProfileScreenProps) => {
         </Pressable>
         <Pressable 
           style={styles.button} 
+          onPress={()=>{props.navigation.push('Snake')}}
+        > 
+            {<Text style={styles.text}>Play fuckin Snake</Text>}
+        </Pressable>
+        <Pressable 
+          style={styles.button} 
           onPress={()=>{
             setAuth(null)
             logoutUser.refetch()

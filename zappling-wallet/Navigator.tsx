@@ -8,7 +8,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useAuthContext } from './providers/AuthProvider';
 import { View, Text, Pressable, StyleSheet,Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Expo's vector icons library
-import icon from './assets/logo.png'
+import SnakeScreen from './screens/SnakeScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
 
@@ -50,6 +50,27 @@ export default function Navigator() {
                     <Stack.Screen 
                         name="Report" 
                         component={ReportScreen} 
+                        options={{
+                            headerStyle: {
+                                backgroundColor: 'transparent',
+                                },
+                                headerTintColor: '#fff',
+                                headerTitleStyle: {
+                                fontWeight: 'bold',
+                            },
+                            headerTransparent: true, // Make header background transparent
+                            headerTitle: '', // Remove title
+                            headerLeft: () => (
+                                <Pressable onPress={() => alert('Menu opened')}>
+                                    <Ionicons name="menu" size={24} color="#6f69eb" />
+                                </Pressable>
+                            ),
+                            
+                        }}
+                    />
+                    <Stack.Screen 
+                        name="Snake" 
+                        component={SnakeScreen} 
                         options={{
                             headerStyle: {
                                 backgroundColor: 'transparent',
