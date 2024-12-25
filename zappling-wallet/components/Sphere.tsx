@@ -1,6 +1,6 @@
 import React from 'react';
 import { GLView } from 'expo-gl';
-import { Renderer,TextureLoader  } from 'expo-three';
+import { Renderer,TextureLoader } from 'expo-three';
 import * as THREE from 'three';
 import { Asset } from 'expo-asset';
 import { useLoader } from '@react-three/fiber/native'
@@ -57,7 +57,7 @@ export default function ThreeDSphere() {
 
     // Sphere with texture
     const geometry = new THREE.SphereGeometry(1.3, 87, 87);
-    const material = new THREE.MeshBasicMaterial({map:texture,transparent:true});
+    const material = new THREE.MeshBasicMaterial({map:texture,transparent: true});
     // const material = new THREE.LineBasicMaterial( { color: 0x4080ff } );
     // const material = new THREE.LineBasicMaterial( {
     //   color: 0xffffff,

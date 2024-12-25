@@ -20,7 +20,7 @@ const Report = (props:ReportScreenProps) => {
        {report.data && report.data.data && report.isSuccess?(
         <FlatList 
           data={list} 
-          renderItem={({item}:any)=>(<Pressable onPress={()=>{alert(item.title)}}>{item.title}</Pressable>)}/>
+          renderItem={({item}:any)=>(<Pressable style={styles.pressable} onPress={()=>{alert(item.title)}}>{item.title}</Pressable>)}/>
        ):null}
 
       </>
@@ -48,5 +48,21 @@ const styles = StyleSheet.create({
     marginBlock:0,
     color:'white',
     textAlign:'center'
+  },
+  pressable:{
+    fontSize:25,
+    color: 'purple',
+    textAlign: 'center',
+    marginBlock:20,
+    shadowColor: "purple",
+    shadowOffset: {
+      width: 6,
+      height: 6,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 16,
+    minHeight: 30,
+    maxWidth: 170,
   },
 });
