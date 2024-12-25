@@ -9,6 +9,7 @@ import { loginEmail } from '../requests/api';
 import { useAuthContext } from '../providers/AuthProvider';
 import ThreeDSphere from './Sphere';
 import icon from '../assets/logo.png'
+
 // Validation schema
 const schema = Yup.object({
   email: Yup.string()
