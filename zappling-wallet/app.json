@@ -16,7 +16,7 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.mrsumpalumpas.zappling-wallet",
+      "package": "com.mrsumpalumpa.zapplingwallet",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo1.png",
@@ -25,6 +25,11 @@
     },
     "web": {
       "favicon": "./assets/logo1.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "519a66c2-bd19-474d-bb3b-6c10e95b4d12"
+      }
     }
   }
 }

@@ -5,10 +5,11 @@ import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import SnakeGame from './SnakeGame';
 const Snake = (props:SnakeScreenProps) => {
     return (
-      <SafeAreaView style={styles.container}>
-        <SnakeGame/>
-      </SafeAreaView>
-
+        <SafeAreaProvider style={styles.container}>
+            <SafeAreaView style={styles.safeArea}>
+                <SnakeGame/>
+            </SafeAreaView>
+        </SafeAreaProvider>
   )};
 export default Snake
 
@@ -23,7 +24,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 500,
   },
-  
+  safeArea: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+    rowGap: 25,
+    zIndex: 5, // Ensure the form is in front of the sphere
+    position:'relative',
+    
+  },
   text: {
     color: 'white',
     textAlign: 'center',
