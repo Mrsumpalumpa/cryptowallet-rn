@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity, Alert } from 'react-native';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 // Define the grid size and initial game state
 const GRID_SIZE = 10;
@@ -115,12 +116,14 @@ const SnakeGame: React.FC = () => {
           <TouchableOpacity
             style={styles.button}
             onPress={() => changeDirection({ x: -1, y: 0 })}>
-            <Text style={styles.buttonText}>Left</Text>
+              <AntDesign name="leftcircle" size={24} color="black" />
+            {/*<Text style={styles.buttonText}>Left</Text>*/}
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.button}
             onPress={() => changeDirection({ x: 1, y: 0 })}>
-            <Text style={styles.buttonText}>Right</Text>
+              <AntDesign name="rightcircle" size={24} color="black" />
+            {/*<Text style={styles.buttonText}>Right</Text>*/}
           </TouchableOpacity>
         </View>
         <TouchableOpacity
@@ -138,7 +141,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#000',
+    backgroundColor: 'transparent',
   },
   grid: {
     width: 300,

@@ -51,7 +51,7 @@ export default function Login(props: LoginScreenProps) {
     <SafeAreaProvider style={styles.container}>
       
       <SafeAreaView style={styles.safeArea}>
-        <ThreeDSphere />
+        <Image source={icon} style={styles.logo}/>
         <Controller
           name="email"
           control={control}
@@ -158,5 +158,12 @@ const styles = StyleSheet.create({
   errorText: {
     color: 'red',
     marginBottom: 10,
+  },
+  logo: {
+    zIndex: -1,
+    width: 300,
+    height: 300,
+    position: 'absolute',
+    top: '2%'
   },
 });
