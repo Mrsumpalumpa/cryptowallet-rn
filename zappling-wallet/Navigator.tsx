@@ -15,8 +15,8 @@ const Stack = createNativeStackNavigator<RootStackParamsList>();
 
 
 export default function Navigator() {
-    const {auth} = useAuthContext()
-    //const auth = true
+    //const {auth} = useAuthContext()
+    const auth = true
   return (
     <>
     <StatusBar style='dark'/>      

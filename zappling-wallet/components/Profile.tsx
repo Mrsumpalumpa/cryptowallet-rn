@@ -41,14 +41,16 @@ export default Profile
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignContent: 'center',
+    justifyContent: 'center',
+    minHeight: 500,
     display:'flex',
     flexDirection:'row',
     flexWrap:'wrap',
     columnGap:3,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: 500,
+    
   },
   safeArea: {
     flex: 1,
