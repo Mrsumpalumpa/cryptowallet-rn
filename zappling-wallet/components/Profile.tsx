@@ -1,32 +1,40 @@
 import { View,Text,Pressable,StyleSheet } from 'react-native';
 import { ProfileScreenProps } from '../models/generics';
 import { useAuthContext } from '../providers/AuthProvider';
+import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+
 const Profile = (props:ProfileScreenProps) => {
     const { logoutUser,setAuth } = useAuthContext()
     return (
-      <View style={styles.container}>
-        <Pressable 
-          style={styles.button} 
-          onPress={()=>{props.navigation.push('Report')}}
-        >
-            {<Text style={styles.text}>Go to reports</Text>}
-        </Pressable>
-        <Pressable 
-          style={styles.button} 
-          onPress={()=>{props.navigation.push('Snake')}}
-        > 
-            {<Text style={styles.text}>Play fuckin Snake</Text>}
-        </Pressable>
-        <Pressable 
-          style={styles.button} 
-          onPress={()=>{
-            setAuth(null)
-            logoutUser.refetch()
-        }}
-        >
-            {<Text style={styles.text}>Logout</Text>}
-        </Pressable>
-      </View>
+      <SafeAreaProvider style={styles.container}>
+        <SafeAreaView style={styles.safeArea}>
+          <Pressable 
+            style={styles.button} 
+            onPress={()=>{props.navigation.push('Report')}}
+          >
+              {<Text style={styles.text}>Go to reports</Text>}
+          </Pressable>
+          <Pressable 
+            style={styles.button} 
+            onPress={()=>{props.navigation.push('Snake')}}
+          > 
+              {<Text style={styles.text}>Play fuckin Snake</Text>}
+          </Pressable>
+          <Pressable 
+            style={styles.button} 
+            onPress={()=>{
+              setAuth(null)
+              logoutUser.refetch()
+          }}
+          >
+              {<Text style={styles.text}>Logout</Text>}
+          </Pressable>
+
+        </SafeAreaView>
+
+      </SafeAreaProvider>
+
+
 
   )};
 export default Profile
@@ -42,7 +50,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minHeight: 500,
   },
-  
+  safeArea: {
+    flex: 1,
+    backgroundColor: 'transparent',
+    alignItems: 'center',
+    justifyContent: 'center',
+    rowGap: 25,
+    zIndex: 5, // Ensure the form is in front of the sphere
+    position:'relative',
+    
+  },
   text: {
     color: 'white',
     textAlign: 'center',

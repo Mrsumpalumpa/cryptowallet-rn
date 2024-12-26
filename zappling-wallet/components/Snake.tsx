@@ -1,9 +1,9 @@
-import { View,Text,Pressable,StyleSheet } from 'react-native';
-import { ProfileScreenProps } from '../models/generics';
+import {StyleSheet } from 'react-native';
+import {  SnakeScreenProps } from '../models/generics';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 
 import SnakeGame from './SnakeGame';
-const Snake = (props:ProfileScreenProps) => {
+const Snake = (props:SnakeScreenProps) => {
     return (
       <SafeAreaView style={styles.container}>
         <SnakeGame/>
