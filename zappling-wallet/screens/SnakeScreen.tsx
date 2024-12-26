@@ -1,7 +1,7 @@
-import { ProfileScreenProps } from '../models/generics';
+import {  SnakeScreenProps } from '../models/generics';
 import Snake from '../components/Snake';
 
-const SnakeScreen = (props:ProfileScreenProps) => {
+const SnakeScreen = (props:SnakeScreenProps) => {
     return (
      <Snake {...props}/>
 
