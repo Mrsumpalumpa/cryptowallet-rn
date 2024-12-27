@@ -9,6 +9,7 @@ import { useAuthContext } from './providers/AuthProvider';
 import { View, Text, Pressable, StyleSheet,Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Expo's vector icons library
 import SnakeScreen from './screens/SnakeScreen';
+import FloatingMenu from './components/Menu';
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
 
@@ -41,9 +42,7 @@ export default function Navigator() {
                             headerTransparent: true, // Make header background transparent
                             headerTitle: '', // Remove title
                             headerLeft: () => (
-                                <Pressable onPress={() => alert('Menu opened')}>
-                                    <Ionicons name="menu" size={24} color="#6f69eb" />
-                                </Pressable>
+                                <FloatingMenu/>
                             ),
                         }} 
                     />
@@ -61,9 +60,8 @@ export default function Navigator() {
                             headerTransparent: true, // Make header background transparent
                             headerTitle: '', // Remove title
                             headerLeft: () => (
-                                <Pressable onPress={() => alert('Menu opened')}>
-                                    <Ionicons name="menu" size={24} color="#6f69eb" />
-                                </Pressable>
+                                <FloatingMenu/>
+                          
                             ),
                             
                         }}
@@ -82,9 +80,7 @@ export default function Navigator() {
                             headerTransparent: true, // Make header background transparent
                             headerTitle: '', // Remove title
                             headerLeft: () => (
-                                <Pressable onPress={() => alert('Menu opened')}>
-                                    <Ionicons name="menu" size={24} color="#6f69eb" />
-                                </Pressable>
+                                <FloatingMenu/>
                             ),
                             
                         }}
@@ -107,9 +103,7 @@ export default function Navigator() {
                         headerTransparent: true, // Make header background transparent
                         headerTitle: '', // Remove title
                         headerLeft: () => (
-                            <Pressable onPress={() => alert('Menu opened')} >
-                                <Ionicons name="menu" size={24} color="#6f69eb" />
-                            </Pressable>
+                            <FloatingMenu/>
                         ),
                         
                     }}

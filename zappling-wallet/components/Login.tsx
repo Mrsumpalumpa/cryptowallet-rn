@@ -31,20 +31,27 @@ export default function Login(props: LoginScreenProps) {
   const { setAuth } = useAuthContext();
   const [loading,setLoading] = useState(false)
   const onSubmit = (data: FormData) => {
-    loginEmail(data.email, data.password).then((r) => {
-      setLoading(true)
-      if (r.status === 200 || r.status === 201) {
-        setAuth(r.data);
-        // props.navigation.push('Profile');
-      } else {
-        alert(`Request Error ${r.status}: ${r.statusText}`);
-      }
+    const pepe ={id:7}
+    setLoading(true)
+    setTimeout(()=>{
+      setAuth(pepe)
       setLoading(false)
+    },1000)
+    return pepe
+    // loginEmail(data.email, data.password).then((r) => {
+    //   setLoading(true)
+    //   if (r.status === 200 || r.status === 201) {
+    //     setAuth(r.data);
+    //     // props.navigation.push('Profile');
+    //   } else {
+    //     alert(`Request Error ${r.status}: ${r.statusText}`);
+    //   }
+    //   setLoading(false)
 
-    }).catch((err) => {
-      setLoading(false)
-      alert(`UNCONTROLLED ERROR ${JSON.stringify(err)}`);
-    });
+    // }).catch((err) => {
+    //   setLoading(false)
+    //   alert(`UNCONTROLLED ERROR ${JSON.stringify(err)}`);
+    // });
   };
 
   return (
@@ -98,7 +105,7 @@ export default function Login(props: LoginScreenProps) {
             <Text style={styles.text}>Log In </Text>
             <Image source={icon} style={{width:30,height:30}} />
           </View>
-          :<ActivityIndicator style={styles.loading}/>}
+          :<ActivityIndicator color={'white'} style={styles.loading}/>}
         </Pressable>
       </SafeAreaView>
     </SafeAreaProvider>
