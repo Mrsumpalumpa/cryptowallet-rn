@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Pressable, Animated, View, StyleSheet, Platform, Modal, Dimensions } from 'react-native';
+import { Pressable, Animated, View, StyleSheet, Platform, Modal, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamsList } from '../models/generics';
-
+import { useAuthContext } from '../providers/AuthProvider';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 type NavigationProp = NativeStackNavigationProp<RootStackParamsList>;
 
 interface IProps {
@@ -15,6 +16,7 @@ interface IProps {
 const Menu = ({ visible, onClose }: IProps) => {
     const [fadeAnim] = useState(new Animated.Value(0));
     const navigation = useNavigation<NavigationProp>();
+    const { logoutUser,setAuth } = useAuthContext()
 
     React.useEffect(() => {
         Animated.timing(fadeAnim, {
@@ -57,13 +59,23 @@ const Menu = ({ visible, onClose }: IProps) => {
                     ]}
                 >
                     <Pressable style={styles.menuItem} onPress={() => handleNavigation('Profile')}>
-                        <Ionicons name="person-outline" size={20} color="#fff" />
+                        <Ionicons name="home" size={20} color="#fff" />
+                        <Text style={styles.text}>Home</Text>
                     </Pressable>
                     <Pressable style={styles.menuItem} onPress={() => handleNavigation('Report')}>
-                        <Ionicons name="settings-outline" size={20} color="#fff" />
+                        <Ionicons name="list" size={20} color="#fff" />
+                        <Text style={styles.text}>Reports</Text>
                     </Pressable>
-                    <Pressable style={styles.menuItem} onPress={() => handleNavigation('Login')}>
+                    <Pressable style={styles.menuItem} onPress={() => handleNavigation('Snake')}>
+                        <MaterialCommunityIcons name="snake" size={20} color="#fff" />
+                        <Text style={styles.text}>Snake</Text>
+                    </Pressable>
+                    <Pressable style={styles.menuItem} onPress={()=>{
+                        setAuth(null)
+                        logoutUser.refetch()
+                    }}>
                         <Ionicons name="log-out-outline" size={20} color="#fff" />
+                        <Text style={styles.text}>Log out</Text>
                     </Pressable>
                 </Animated.View>
             </Pressable>
@@ -120,10 +132,20 @@ const styles = StyleSheet.create({
         }),
     },
     menuItem: {
-        padding: 12,
-        borderBottomWidth: 1,
-        borderBottomColor: 'rgba(255,255,255,0.1)',
+      display:'flex',
+      justifyContent:'flex-start',
+      alignItems:'center',
+      columnGap:5,
+      flexDirection:'row',
+      padding: 12,
+      color:'#fff',
+      borderBottomWidth: 1,
+      borderBottomColor: 'rgba(255,255,255,0.1)',
     },
+    text:{
+      color:'white',
+      fontSize:15
+    }
 });
 
 export default FloatingMenu;

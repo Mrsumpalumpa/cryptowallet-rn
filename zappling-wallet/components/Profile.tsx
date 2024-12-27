@@ -2,11 +2,12 @@ import { View,Text,Pressable,StyleSheet } from 'react-native';
 import { ProfileScreenProps } from '../models/generics';
 import { useAuthContext } from '../providers/AuthProvider';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import ThreeDSphere from './Sphere';
 
 const Profile = (props:ProfileScreenProps) => {
-    const { logoutUser,setAuth } = useAuthContext()
     return (
       <SafeAreaProvider style={styles.container}>
+        <ThreeDSphere/>
         <SafeAreaView style={styles.safeArea}>
           <Pressable 
             style={styles.button} 
@@ -20,15 +21,7 @@ const Profile = (props:ProfileScreenProps) => {
           > 
               {<Text style={styles.text}>Play fuckin Snake</Text>}
           </Pressable>
-          <Pressable 
-            style={styles.button} 
-            onPress={()=>{
-              setAuth(null)
-              logoutUser.refetch()
-          }}
-          >
-              {<Text style={styles.text}>Logout</Text>}
-          </Pressable>
+         
 
         </SafeAreaView>
 

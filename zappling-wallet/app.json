@@ -20,7 +20,8 @@
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/logo1.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#ffffff",
+        "resizeMode": "contain"
       }
     },
     "web": {

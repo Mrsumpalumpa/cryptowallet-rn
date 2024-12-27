@@ -8,6 +8,7 @@ import { LoginScreenProps } from '../models/generics';
 import { loginEmail } from '../requests/api';
 import { useAuthContext } from '../providers/AuthProvider';
 import ThreeDSphere from './Sphere';
+import { Ionicons } from '@expo/vector-icons';
 import icon from '../assets/logo1.png'
 // Validation schema
 const schema = Yup.object({
@@ -103,7 +104,7 @@ export default function Login(props: LoginScreenProps) {
             justifyContent:'center'
             }}>
             <Text style={styles.text}>Log In </Text>
-            <Image source={icon} style={{width:30,height:30}} />
+            <Ionicons name="log-in-outline" size={20} color="#fff" />
           </View>
           :<ActivityIndicator color={'white'} style={styles.loading}/>}
         </Pressable>
