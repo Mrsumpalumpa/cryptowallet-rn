@@ -20,7 +20,7 @@ const Report = (props:ReportScreenProps) => {
        {report.data && report.data.data && report.isSuccess?(
         <FlatList 
           data={list} 
-          renderItem={({item}:any)=>(<Pressable style={styles.pressable} onPress={()=>{alert(item.title)}}>{item.title}</Pressable>)}/>
+          renderItem={({item}:any)=>(<Pressable style={styles.pressable} onPress={()=>{alert(item.title)}}><Text>{item.title}</Text></Pressable>)}/>
        ):null}
 
       </>

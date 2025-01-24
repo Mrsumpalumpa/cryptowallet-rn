@@ -1,25 +1,38 @@
+import { useState,useEffect } from 'react';
 import { View,Text,Pressable,StyleSheet } from 'react-native';
-import { ProfileScreenProps } from '../models/generics';
-import { useAuthContext } from '../providers/AuthProvider';
+import {  WalletScreenProps } from '../models/generics';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
 import ThreeDSphere from './Sphere';
+import { LightningAddress } from "@getalby/lightning-tools";
 
-const Profile = (props:ProfileScreenProps) => {
+
+const Wallet = (props:WalletScreenProps) => {
+    const [address,setAddress] = useState('')
+    const getLightningAddress = async ()=>{
+      try{
+            const ln = new LightningAddress("marceloct1986@gmail.com");
+            const result = await ln.fetch()
+            console.log(result)
+            return result
+            
+        }
+        catch(err){
+            alert(`Error getting lightning Address: ${JSON.stringify(err)}`)
+        }
+    }
+    useEffect(()=>{
+        getLightningAddress()
+    },[])
     return (
       <SafeAreaProvider style={styles.container}>
         <ThreeDSphere/>
         <SafeAreaView style={styles.safeArea}>
+         
           <Pressable 
             style={styles.button} 
-            onPress={()=>{props.navigation.push('Report')}}
-          >
-              {<Text style={styles.text}>Go to reports</Text>}
-          </Pressable>
-          <Pressable 
-            style={styles.button} 
-            onPress={()=>{props.navigation.push('Snake')}}
+            onPress={()=>{getLightningAddress()}}
           > 
-              {<Text style={styles.text}>Play fuckin Snake</Text>}
+              {<Text style={styles.text}>get address</Text>}
           </Pressable>
          
 
@@ -30,7 +43,7 @@ const Profile = (props:ProfileScreenProps) => {
 
 
   )};
-export default Profile
+export default Wallet
 
 const styles = StyleSheet.create({
   container: {
