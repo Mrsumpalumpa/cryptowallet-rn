@@ -10,6 +10,7 @@ import { View, Text, Pressable, StyleSheet,Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; // Expo's vector icons library
 import SnakeScreen from './screens/SnakeScreen';
 import FloatingMenu from './components/Menu';
+import WalletScreen from './screens/WalletScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamsList>();
 
@@ -81,6 +82,26 @@ export default function Navigator() {
                             headerTitle: '', // Remove title
                             headerLeft: () => (
                                 <FloatingMenu/>
+                            ),
+                            
+                        }}
+                    />
+                    <Stack.Screen 
+                        name="Wallet" 
+                        component={WalletScreen} 
+                        options={{
+                            headerStyle: {
+                                backgroundColor: 'transparent',
+                                },
+                                headerTintColor: '#fff',
+                                headerTitleStyle: {
+                                fontWeight: 'bold',
+                            },
+                            headerTransparent: true, // Make header background transparent
+                            headerTitle: '', // Remove title
+                            headerLeft: () => (
+                                <FloatingMenu/>
+                          
                             ),
                             
                         }}

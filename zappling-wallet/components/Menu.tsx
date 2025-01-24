@@ -6,6 +6,8 @@ import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { RootStackParamsList } from '../models/generics';
 import { useAuthContext } from '../providers/AuthProvider';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import AntDesign from '@expo/vector-icons/AntDesign';
+
 type NavigationProp = NativeStackNavigationProp<RootStackParamsList>;
 
 interface IProps {
@@ -69,6 +71,10 @@ const Menu = ({ visible, onClose }: IProps) => {
                     <Pressable style={styles.menuItem} onPress={() => handleNavigation('Snake')}>
                         <MaterialCommunityIcons name="snake" size={20} color="#fff" />
                         <Text style={styles.text}>Snake</Text>
+                    </Pressable>
+                    <Pressable style={styles.menuItem} onPress={() => handleNavigation('Wallet')}>
+                        <AntDesign name="wallet" size={20} color="white" />
+                        <Text style={styles.text}>Wallet</Text>
                     </Pressable>
                     <Pressable style={styles.menuItem} onPress={()=>{
                         setAuth(null)

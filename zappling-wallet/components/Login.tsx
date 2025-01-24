@@ -5,12 +5,10 @@ import { useForm, Controller } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginScreenProps } from '../models/generics';
-import { loginEmail } from '../requests/api';
 import { useAuthContext } from '../providers/AuthProvider';
-import ThreeDSphere from './Sphere';
 import { Ionicons } from '@expo/vector-icons';
 import icon from '../assets/logo1.png'
-// Validation schema
+
 const schema = Yup.object({
   email: Yup.string()
     .matches(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, 'Please enter a valid email address')
