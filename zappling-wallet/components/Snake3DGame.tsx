@@ -183,7 +183,7 @@ const Snake3DGame: React.FC = () => {
       gl.endFrameEXP();
     };
     animate();
-  };
+  };  
 
   useEffect(() => {
     if (isGameOver || isPaused) return;
